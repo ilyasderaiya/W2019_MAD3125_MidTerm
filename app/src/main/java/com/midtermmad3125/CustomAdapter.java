@@ -2,6 +2,7 @@ package com.midtermmad3125;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -10,8 +11,11 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.midtermmad3125.ui.WeatherDetailsActivity;
+
 import org.w3c.dom.Text;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHolder> {
@@ -30,6 +34,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
         this.maxTemp = maxTemp;
         this.wdetails = wdetails;
         this.wdescription = wdescription;
+
     }
 
     @NonNull
@@ -53,6 +58,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             @Override
             public void onClick(View v) {
                 Toast.makeText(context, wdetails.get(i), Toast.LENGTH_SHORT).show();
+                Intent mIntent = new Intent(v.getContext(), WeatherDetailsActivity.class);
+                v.getContext().startActivity(mIntent);
+
             }
         });
     }

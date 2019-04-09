@@ -4,8 +4,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
 import com.midtermmad3125.CustomAdapter;
+import com.midtermmad3125.Details;
+import com.midtermmad3125.Model;
 import com.midtermmad3125.R;
 import com.midtermmad3125.utils.ReadJSONUtils;
 
@@ -39,6 +42,7 @@ public class WeatherListActivity extends AppCompatActivity
 
         loadJson();
 
+
         CustomAdapter customAdapter = new CustomAdapter(WeatherListActivity.this, date, minimumTemp, maxTemp, wdetails, wdescription);
         recyclerView.setAdapter(customAdapter);
     }
@@ -49,6 +53,7 @@ public class WeatherListActivity extends AppCompatActivity
             //JSONObject mObj = new JSONObject(jsonString);
 
             JSONObject mObj = new JSONObject(loadJSONFromAsset());
+            JSONObject cityObj = mObj.getJSONObject("city");
 
 
             JSONArray list = mObj.getJSONArray("list");
@@ -63,12 +68,14 @@ public class WeatherListActivity extends AppCompatActivity
                 minimumTemp.add(tempObj.getDouble("min"));
                 maxTemp.add(tempObj.getDouble("max"));
 
+
                 //Array for Weather Details
                 JSONArray weatherObj = dObj.getJSONArray("weather");
                 for(int j = 0; j < weatherObj.length(); j++) {
-                    JSONObject wObj = weatherObj.getJSONObject(i);
+                    JSONObject wObj = weatherObj.getJSONObject(j);
                     wdetails.add(wObj.getString("main"));
                     wdescription.add(wObj.getString("description"));
+
                 }
             }
         } catch (JSONException e) {
