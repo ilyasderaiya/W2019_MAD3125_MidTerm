@@ -12,7 +12,7 @@ public class Details implements Serializable {
     public Double speed, rain;
     public Integer clouds;
 
-    /*public  Details(String cName, String date, Double day, Double night, Double morn, Double eve, Double min, Double max, Double pressure, Integer humidity, String wMain, String wDesc, Double speed, Double rain, Integer clouds) {
+    public  Details(String cName, String date, Double day, Double night, Double morn, Double eve, Double min, Double max, Double pressure, Integer humidity, String wMain, String wDesc, Double speed, Double rain, Integer clouds) {
         this.cityName = cName;
         this.date = date;
         this.day = day;
@@ -28,6 +28,6 @@ public class Details implements Serializable {
         this.speed = speed;
         this.rain = rain;
         this.clouds = clouds;
-    }*/
+    }
 
 }

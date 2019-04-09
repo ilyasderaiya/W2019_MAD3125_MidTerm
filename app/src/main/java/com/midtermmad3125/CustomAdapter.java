@@ -59,6 +59,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.MyViewHold
             public void onClick(View v) {
                 Toast.makeText(context, wdetails.get(i), Toast.LENGTH_SHORT).show();
                 Intent mIntent = new Intent(v.getContext(), WeatherDetailsActivity.class);
+                mIntent.putExtra("date", date.get(i));
+                mIntent.putExtra("min", minimumTemp.get(i).toString());
+                mIntent.putExtra("max", maxTemp.get(i).toString());
+                mIntent.putExtra("wdetail", wdetails.get(i));
+                mIntent.putExtra("wdesc", wdescription.get(i));
                 v.getContext().startActivity(mIntent);
 
             }
