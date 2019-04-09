@@ -59,37 +59,47 @@
 
     <TextView
         android:id="@+id/txtCC"
-        android:layout_width="200dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="19dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="33dp"
+        android:layout_marginEnd="26dp"
         android:text="Country Code"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView7"
-        app:layout_constraintTop_toBottomOf="@+id/txtLatitude" />
+        app:layout_constraintTop_toBottomOf="@+id/txtLogitude" />
 
     <TextView
         android:id="@+id/txtPopu"
-        android:layout_width="213dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="33dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginEnd="22dp"
         android:text="Population:"
         android:textAlignment="center"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="168dp"
-        tools:layout_editor_absoluteY="384dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:layout_constraintTop_toBottomOf="@+id/txtCC" />
 
     <Button
         android:id="@+id/btnShow"
         android:layout_width="395dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="18dp"
         android:text="Show Forecast"
         android:textAlignment="center"
         android:textSize="18sp"
         android:textStyle="bold"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="537dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPopu" />
 
     <TextView
         android:id="@+id/textView3"
@@ -119,13 +129,10 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="9dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="19dp"
         android:text="Country Code:"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/txtCC"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtLatitude" />
 
@@ -133,8 +140,10 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="50dp"
         android:text="Population:"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="26dp"
-        tools:layout_editor_absoluteY="384dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 </android.support.constraint.ConstraintLayout>
