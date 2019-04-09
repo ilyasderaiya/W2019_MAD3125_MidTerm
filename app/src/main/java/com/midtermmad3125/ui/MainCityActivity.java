@@ -16,6 +16,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 
@@ -52,25 +53,32 @@ public class MainCityActivity extends AppCompatActivity
     }
 
     private void loadJson() {
-        String jsonString = ReadJSONUtils.loadJSONFromAsset(getApplicationContext(),"moscow_weather");
-        if(jsonString != null){
+        //String jsonString = ReadJSONUtils.loadJSONFromAsset(getApplicationContext(),"moscow_weather");
             try{
                 //get JSON Object
-                JSONObject mObj = new JSONObject(jsonString);
+                //JSONObject mObj = new JSONObject(jsonString);
+
+                JSONObject mObj = new JSONObject(loadJSONFromAsset());
+
                 //Fetching City Details
                 JSONObject cityObj = mObj.getJSONObject("city");
+
                 cityName = cityObj.getString("name");
                 cName.setText(cityName);
                 System.out.println(cityName);
+
                 country = cityObj.getString("country");
                 cc.setText(country);
+
                 population = cityObj.getLong("population");
                 popul.setText(population.toString());
 
                 //Object to fetch Lang and Long
                 JSONObject coord = cityObj.getJSONObject("coord");
+
                 lat = coord.getDouble("lat");
                 latitude.setText(lat.toString());
+
                 longi = coord.getDouble("lon");
                 longitude.setText(longi.toString());
 
@@ -78,10 +86,21 @@ public class MainCityActivity extends AppCompatActivity
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-        }
     }
 
-
-
-
+    public String loadJSONFromAsset() {
+        String json = null;
+        try {
+            InputStream is = getAssets().open("moscow_weather.json");
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+        } catch (IOException ex) {
+            ex.printStackTrace();
+            return null;
+        }
+        return json;
+    }
 }
